@@ -1,0 +1,1 @@
+Alberto Casero falló en dos votaciones más a pesar de los dos filtros de validación para comprobar si el voto es correcto. El sistema informático de votación telemática del Congreso de los Diputados tiene dos niveles de validación del voto para evitar errores. Es decir, el diputado, antes de emitir su decisión, puede hacer una revisión.
