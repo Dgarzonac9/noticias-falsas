@@ -1,8 +1,8 @@
-# 09 · Análisis lingüístico asentado (secciones 3 y 4)
+# Análisis lingüístico: POS y NER
 
-**Práctica 1 PLN – Noticias falsas (Equipo 1, tema: política)**
+**Práctica 1 PLN – Noticias falsas de política (Equipo 1)**
 
-Texto listo para el informe. Deja asentadas las secciones **3 (POS Tagging)** y **4 (NER)**, y el extra que compara las falsas fabricadas de Vigo con los bulos reales de Maldita y Newtral. Al final hay un aporte para la **sección 9** (análisis integrado). El cruce con temas queda pendiente de la Persona C: LSA y LDA todavía no están.
+Resume las secciones **3 (POS Tagging)** y **4 (NER)**, y el extra que compara las falsas fabricadas de Vigo con los bulos reales de Maldita y Newtral. Al final hay un aporte al análisis integrado. El cruce con modelado de temas (LSA y LDA) no está incluido en este repositorio.
 
 Los números salen de `03_pos.ipynb` y `04_ner.ipynb`. Las figuras y tablas están en `resultados/` (POS) y `resultados/ner/` (NER).
 
@@ -113,7 +113,7 @@ Los nombres sí cambian de clase:
 
 En las verdaderas mandan los actores centrales de la política española: PP, PSOE, Vox y Podemos. En las falsas mandan partidos regionales o minoritarios y políticos poco centrales, puestos en noticias que no les corresponden. «Iniciativa vers per Catalunya» no aparece ni una vez en las verdaderas: es un nombre alterado de las falsas fabricadas de Vigo, y el NER lo recoge 449 veces.
 
-Esto confirma, desde otra técnica, lo que aprendió el clasificador de la Persona A. Ese modelo separa las falsas fabricadas por los mismos actores (Equo, BNG, EAJ-PNV, Coalición Canaria, Nueva Canarias, Cristina Narbona). Los conteos no coinciden número a número, porque la bolsa de palabras cuenta tokens y el NER cuenta menciones reconocidas, pero la dirección es la misma.
+Esto confirma, desde otra técnica, lo que aprendió el clasificador. Ese modelo separa las falsas fabricadas por los mismos actores (Equo, BNG, EAJ-PNV, Coalición Canaria, Nueva Canarias, Cristina Narbona). Los conteos no coinciden número a número, porque la bolsa de palabras cuenta tokens y el NER cuenta menciones reconocidas, pero la dirección es la misma.
 
 ### 4.5 Errores del modelo
 
@@ -171,10 +171,10 @@ Eso explica el resultado de la clasificación. El modelo acierta el 80 % de las 
 
 ---
 
-## Aporte a la sección 9
+## Aporte al análisis integrado
 
-Lo que ya se puede afirmar, cruzando POS, NER y la clasificación de la Persona A. El tercer patrón, el de temas, lo cierra la Persona C cuando estén LSA y LDA.
+Lo que ya se puede afirmar, cruzando POS, NER y la clasificación.
 
 1. **La gramática no separa las clases; los nombres sí.** Las cinco categorías del POS difieren en menos de un punto. Los nombres propios suben un poco en las falsas, y el NER muestra que ese aumento no es «más lugares» ni «más organizaciones»: es otro reparto de actores. Un detector gana más mirando qué entidades aparecen que mirando el porcentaje de sustantivos o verbos.
 2. **Las falsas fabricadas se delatan por actores fuera de lugar; los bulos reales, no.** Equo, BNG, EAJ-PNV, Coalición Canaria, Nueva Canarias y Cristina Narbona salen casi solo en las falsas de Vigo, tanto en la bolsa de palabras del clasificador como en el NER, y no aparecen en los 75 bulos de Maldita y Newtral. Esos bulos hablan de Pedro Sánchez, Trump o Maduro. El patrón serviría para detectar noticias alteradas como las de Vigo. No sirve, por sí solo, para la desinformación real, y por eso el clasificador solo acierta el 39 % de esos bulos.
-3. **Pendiente de temas.** Falta ver si LSA y LDA agrupan las noticias por esos mismos actores. Si los temas de las falsas son «partido regional fuera de contexto» y los de las verdaderas son «PP, PSOE, Gobierno», el patrón queda confirmado por una tercera técnica.
+3. **Línea de trabajo futura: temas.** Falta comprobar si LSA y LDA agrupan las noticias por esos mismos actores. Si los temas de las falsas son «partido regional fuera de contexto» y los de las verdaderas son «PP, PSOE, Gobierno», el patrón queda confirmado por una tercera técnica.
