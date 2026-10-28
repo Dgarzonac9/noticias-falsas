@@ -1,8 +1,27 @@
+<div align="center">
+
 # Detección de noticias falsas de política en español
 
-Práctica de Procesamiento del Lenguaje Natural (Universidad Nacional de Colombia, Medellín). Se construye un corpus de 5.150 noticias de política española, se preprocesa, se analiza lingüísticamente (POS y NER) y se entrenan 4 algoritmos de clasificación con 8 configuraciones de representación, evaluados con validación cruzada de 10 particiones.
+**Procesamiento del Lenguaje Natural · corpus de 5.150 noticias · 4 algoritmos x 8 configuraciones**
 
-**Resultado principal:** Regresión Logística con TF-IDF y stopwords, sin stemming, alcanza un F1 ponderado de **0,8618** en validación cruzada y **0,8494** en el 20 % de test. Ese valor debe leerse con cautela por la limitación del corpus (ver [Limitaciones](#limitaciones)).
+![Python](https://img.shields.io/badge/Python-3-3776AB?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![spaCy](https://img.shields.io/badge/spaCy-09A3D5?logo=spacy&logoColor=white)
+![NLTK](https://img.shields.io/badge/NLTK-154F5B)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
+![Datos: CC BY 4.0](https://img.shields.io/badge/corpus-CC%20BY%204.0-lightgrey)
+
+</div>
+
+Práctica de Procesamiento del Lenguaje Natural (Universidad Nacional de Colombia, Medellín). Se construye un corpus de noticias de política española, se preprocesa, se analiza lingüísticamente (POS y NER) y se entrenan 4 algoritmos de clasificación con 8 configuraciones de representación, evaluados con validación cruzada de 10 particiones.
+
+| 5.150 | 2.575 / 2.575 | 32 | 0,8618 | 0,8494 |
+|:---:|:---:|:---:|:---:|:---:|
+| noticias | verdaderas / falsas | modelos evaluados | F1 mejor modelo (validación cruzada) | F1 mejor modelo (test) |
+
+Mejor modelo: **Regresión Logística con TF-IDF y stopwords, sin stemming**. Ese valor debe leerse con cautela por la limitación del corpus (ver [Limitaciones](#limitaciones)).
+
+**Contenido:** [Alcance](#alcance) · [Corpus](#corpus) · [Preprocesamiento](#preprocesamiento) · [Características](#características) · [Análisis lingüístico](#análisis-lingüístico) · [Resultados](#resultados-de-clasificación) · [Limitaciones](#limitaciones) · [Reproducir](#cómo-reproducirlo)
 
 ## Alcance
 
@@ -31,6 +50,8 @@ El análisis escrito de POS y NER está en [`docs/analisis_pos_ner.md`](docs/ana
 
 Longitud media: 53,94 palabras por documento (277.794 en total). Las dos clases son casi idénticas (≈ 54 palabras). Dentro del scraping, los bulos son más cortos (≈ 20 palabras) que las noticias verdaderas (≈ 55).
 
+<p align="center"><img src="datos/longitud_corpus.png" alt="Distribución de la longitud de las noticias por fuente y clase" width="640"></p>
+
 ## Preprocesamiento
 
 Se aplica sobre el texto original y se guarda aparte: minúsculas, eliminación de tildes (se conserva la ñ), números, enlaces, saltos de línea, HTML, puntuación y emojis. El vocabulario baja de 30.196 a 18.690 palabras distintas (−38 %). POS y NER usan el texto original, porque necesitan mayúsculas y puntuación; la clasificación usa el texto preprocesado.
@@ -48,6 +69,10 @@ Con spaCy (`es_core_news_sm`), procesando cada clase por separado:
 
 - **POS:** las categorías NOUN, VERB, ADJ, ADV y PRON difieren en menos de un punto porcentual entre clases. Los nombres propios sí se separan: 15,25 % en falsas y 13,01 % en verdaderas.
 - **NER:** hay 13.949 entidades en verdaderas y 14.655 en falsas. En las verdaderas dominan PP, PSOE, Vox y Podemos; en las falsas, partidos regionales o minoritarios como BNG, EAJ-PNV, Coalición Canaria, Equo y Nueva Canarias. El modelo pequeño comete errores de tipo y de detección, documentados con cinco casos en `04_ner.ipynb`.
+
+<p align="center"><img src="resultados/ner/top_verdad.png" alt="Entidades más frecuentes en noticias verdaderas" width="46%"> <img src="resultados/ner/top_falso.png" alt="Entidades más frecuentes en noticias falsas" width="46%"></p>
+
+El análisis completo, con tablas y errores del NER, está en [`docs/analisis_pos_ner.md`](docs/analisis_pos_ner.md).
 
 ## Resultados de clasificación
 
@@ -91,6 +116,10 @@ Lecturas del experimento:
 
 Los términos que más empujan hacia "falsa" son partidos y personas poco frecuentes en estas noticias: Equo, BNG, Cristina Narbona, EAJ-PNV, Coalición Canaria, Nueva Canarias.
 
+<p align="center"><img src="resultados/10_f1_maximo_por_algoritmo.png" alt="F1 máximo por algoritmo" width="46%"> <img src="resultados/10_f1_medio_por_reduccion.png" alt="F1 medio por técnica de reducción" width="50%"></p>
+
+<p align="center"><img src="resultados/10_matriz_confusion_mejor.png" alt="Matriz de confusión del mejor modelo en test" width="340"></p>
+
 ## Limitaciones
 
 **Las noticias falsas del corpus de Vigo son fabricadas**: noticias reales alteradas o generadas con IA, no desinformación circulada. El clasificador aprende a detectar esa fabricación, sobre todo actores políticos fuera de lugar, y no la falsedad en general. Por eso un F1 alto debe leerse con cautela.
@@ -114,13 +143,14 @@ El modelo acierta el 80 % de las falsas fabricadas, pero solo el 39 % de los bul
    pip install pandas scikit-learn nltk spacy matplotlib jupyter requests beautifulsoup4
    python -m spacy download es_core_news_sm
    ```
-2. Ejecutar los notebooks desde la raíz del repositorio, en orden: `02`, `03`, `04`, `05` y `10`. Usan `datos/corpus.csv` y `datos/corpus_limpio.csv`, ya incluidos, y semilla `42`. Las tablas y gráficos se guardan en `resultados/`.
+2. Ejecutar los notebooks desde la raíz del repositorio, en orden: `02`, `03`, `04`, `05` y `10`. Usan `datos/corpus.csv` y `datos/corpus_limpio.csv`, ya incluidos, y semilla `42`. Las tablas y gráficos se guardan en `resultados/`, que ya incluye los generados por la última ejecución.
 3. **No es necesario ejecutar `01_corpus.ipynb`.** Vuelve a hacer el scraping y el corpus cambiaría, porque los sitios publican bulos nuevos cada día. Su documentación y las salidas guardadas describen cómo se construyó.
 
 ## Estructura
 
 ```
 corpus/Verdad, corpus/Falso    noticias en .txt
+resultados/                   tablas y gráficos de cada notebook
 datos/                         corpus.csv, corpus_limpio.csv, estadísticas y datos del scraping
 docs/analisis_pos_ner.md       análisis escrito de POS y NER
 docs/equipo/                   notas internas de coordinación del equipo

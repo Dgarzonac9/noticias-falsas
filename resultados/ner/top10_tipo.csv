@@ -1,0 +1,81 @@
+tipo,clase,puesto,entidad,frecuencia
+PER,Verdad,1,españa,92
+PER,Verdad,2,iglesias,86
+PER,Verdad,3,pedro sánchez,82
+PER,Verdad,4,rajoy,52
+PER,Verdad,5,andalucía,50
+PER,Verdad,6,pablo iglesias,47
+PER,Verdad,7,ayuso,47
+PER,Verdad,8,sánchez,42
+PER,Verdad,9,franco,42
+PER,Verdad,10,presupuestos,38
+PER,Falso,1,cristina narbona,246
+PER,Falso,2,mónica garcía,98
+PER,Falso,3,rita maestre,89
+PER,Falso,4,españa,78
+PER,Falso,5,boluarte,71
+PER,Falso,6,pablo echenique,67
+PER,Falso,7,carlos prieto,60
+PER,Falso,8,jordi sevilla,53
+PER,Falso,9,gallardo,52
+PER,Falso,10,juan carlos,49
+LOC,Verdad,1,gobierno,358
+LOC,Verdad,2,madrid,163
+LOC,Verdad,3,supremo,71
+LOC,Verdad,4,podemos,70
+LOC,Verdad,5,villarejo,64
+LOC,Verdad,6,españa,63
+LOC,Verdad,7,barcelona,56
+LOC,Verdad,8,estado,56
+LOC,Verdad,9,andalucía,51
+LOC,Verdad,10,comunidad de madrid,51
+LOC,Falso,1,gobierno,402
+LOC,Falso,2,coalición canaria,202
+LOC,Falso,3,nueva canarias,190
+LOC,Falso,4,madrid,160
+LOC,Falso,5,comunidad de madrid,56
+LOC,Falso,6,andalucía,51
+LOC,Falso,7,españa,49
+LOC,Falso,8,barcelona,46
+LOC,Falso,9,villarejo,43
+LOC,Falso,10,estado,41
+ORG,Verdad,1,pp,625
+ORG,Verdad,2,psoe,339
+ORG,Verdad,3,vox,225
+ORG,Verdad,4,congreso,190
+ORG,Verdad,5,ciudadanos,125
+ORG,Verdad,6,erc,101
+ORG,Verdad,7,unidas podemos,73
+ORG,Verdad,8,iu,45
+ORG,Verdad,9,sánchez,45
+ORG,Verdad,10,senado,43
+ORG,Falso,1,iniciativa vers per catalunya,368
+ORG,Falso,2,bng,268
+ORG,Falso,3,eaj-pnv,216
+ORG,Falso,4,pp,212
+ORG,Falso,5,congreso,195
+ORG,Falso,6,equo,181
+ORG,Falso,7,psoe,110
+ORG,Falso,8,unidas eaj-pnv,51
+ORG,Falso,9,unidas pp,49
+ORG,Falso,10,vox,43
+MISC,Verdad,1,ejecutivo,77
+MISC,Verdad,2,catalunya,51
+MISC,Verdad,3,casado,50
+MISC,Verdad,4,fiscalía,38
+MISC,Verdad,5,cs,34
+MISC,Verdad,6,sánchez,29
+MISC,Verdad,7,el presidente del gobierno,28
+MISC,Verdad,8,podemos,19
+MISC,Verdad,9,junta,17
+MISC,Verdad,10,jxcat,15
+MISC,Falso,1,iniciativa vers per catalunya,81
+MISC,Falso,2,ejecutivo,75
+MISC,Falso,3,cs,69
+MISC,Falso,4,catalunya,50
+MISC,Falso,5,jxcat,32
+MISC,Falso,6,el presidente del gobierno,26
+MISC,Falso,7,gobierno,24
+MISC,Falso,8,fiscalía,23
+MISC,Falso,9,junta,18
+MISC,Falso,10,tc,17

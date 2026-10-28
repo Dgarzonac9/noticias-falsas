@@ -1,0 +1,9 @@
+#,POND,STOPWORDS,STEMMING,documentos,características,% celdas distintas de 0,peso máximo
+1,TO,False,False,5150,124197,0.074,17.0
+2,TO,True,False,5150,11206,0.26,7.0
+3,TO,False,True,5150,100903,0.091,17.0
+4,TO,True,True,5150,10042,0.315,7.0
+5,TF-IDF,False,False,5150,124197,0.074,0.492
+6,TF-IDF,True,False,5150,11206,0.26,0.702
+7,TF-IDF,False,True,5150,100903,0.091,0.551
+8,TF-IDF,True,True,5150,10042,0.315,0.728

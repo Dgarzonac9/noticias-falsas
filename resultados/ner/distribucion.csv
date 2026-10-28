@@ -1,0 +1,5 @@
+Tipo,Significado,Verdaderas (cantidad),Verdaderas (%),Falsas (cantidad),Falsas (%)
+PER,Persona,3519,25.23,4348,29.67
+LOC,Lugar,4106,29.44,4066,27.74
+ORG,Organización,3285,23.55,3128,21.34
+MISC,Otros,3039,21.79,3113,21.24

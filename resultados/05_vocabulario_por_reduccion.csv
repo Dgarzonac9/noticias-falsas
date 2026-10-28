@@ -1,0 +1,5 @@
+reducción,STOPWORDS,STEMMING,unigramas,bigramas,total,reducción vs. sin técnica (%)
+Sin ninguna técnica,False,False,18690,105507,124197,0.0
+Solo stopwords,True,False,7205,4001,11206,91.0
+Solo stemming,False,True,9570,91333,100903,18.8
+Stopwords + stemming,True,True,4678,5364,10042,91.9

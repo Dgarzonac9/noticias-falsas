@@ -4,7 +4,7 @@
 
 Resume las secciones **3 (POS Tagging)** y **4 (NER)**, y el extra que compara las falsas fabricadas de Vigo con los bulos reales de Maldita y Newtral. Al final hay un aporte al análisis integrado. El cruce con modelado de temas (LSA y LDA) no está incluido en este repositorio.
 
-Los números salen de `03_pos.ipynb` y `04_ner.ipynb`. Las figuras y tablas están en `resultados/` (POS) y `resultados/ner/` (NER).
+Los números salen de `03_pos.ipynb` y `04_ner.ipynb`. Las figuras y tablas están en `../resultados/` (POS) y `../resultados/ner/` (NER).
 
 ---
 
@@ -146,7 +146,6 @@ El porcentaje sigue calculándose sin puntuación ni espacios: 140.318 tokens en
 | PRON | 3,09 | 3,10 |
 | PROPN | 15,20 | 19,57 |
 
-*Tabla: `resultados/03_pos_fabricadas_vs_bulos.csv`.*
 
 Sustantivos, verbos, adjetivos y pronombres siguen parecidos. Los adverbios bajan en los bulos (0,88 %), pero son solo 13 tokens: con 75 noticias cortas ese porcentaje no se puede tomar como un estilo. Lo que sí se separa es otra vez el nombre propio: 19,57 % en los bulos y 15,20 % en las fabricadas.
 
@@ -161,7 +160,6 @@ Hay 14.481 entidades en las fabricadas y 174 en los bulos. Por cada 100 tokens l
 | ORG | 21,49 | 9,20 |
 | MISC | 21,40 | 8,05 |
 
-*Tabla: `resultados/ner/fabricadas_vs_bulos.csv`.*
 
 Los bulos reales son sobre todo personas y lugares. Las organizaciones caen a 9,20 %. Las fabricadas reparten los cuatro tipos de forma mucho más pareja, porque están llenas de siglas de partido.
 
